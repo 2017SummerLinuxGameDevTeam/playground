@@ -1,0 +1,3 @@
+[submodule "hummingbird"]
+	path = hummingbird
+	url = https://github.com/Galbar/hummingbird
