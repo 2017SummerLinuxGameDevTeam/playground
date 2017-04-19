@@ -1,17 +1,9 @@
 # Playground
 
-## How to build:
+## How to build and run:
 
 ```
-# Clone hummingbird in the parent directory and build it
-git clone https://github.com/Galbar/hummingbird.git ../hummingbird
-cd ../hummingbird
-make
-
-# go back to lpayground's directory
-cd -
-make
-./playground
+make run
 ```
 
 ## Hummingbird docs
