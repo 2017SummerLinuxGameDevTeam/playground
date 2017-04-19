@@ -1,4 +1,5 @@
 #include "hummingbird/hum.hpp"
+#include "SDLPlugin.hpp"
 
 // Custom behavior that we will add to the actors
 // to see their positions
@@ -57,6 +58,8 @@ int main(void)
     // Both addPlugin and addBehavior have as arguments whatever the class passed
     // to he template needs for its constructor.
     game.addPlugin<CloseGame>(3);
+    game.addPlugin<SDLPlugin>(WindowConfig_t{"Playground", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 512, 512,
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN});
 
     // Create a new actor (GameObject). It is stored and managed by a ActorPool in game.
     hum::Actor* actor = game.actors().create();
