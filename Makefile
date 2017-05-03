@@ -1,8 +1,8 @@
 OUT    := playground
 CC     := g++
-CFLAGS := -std=c++11 -Wall -O3
+CFLAGS := -std=c++1z -Wall -O3
 ODIR   := obj
-LIBS   := -lSDL2
+LIBS   := -lSDL2 -lGL -lGLEW
 INCLUDE_DIRS = $(shell find ./ -name 'include') glm
 INC    = $(addprefix -I,$(INCLUDE_DIRS))
 SDIR   := src

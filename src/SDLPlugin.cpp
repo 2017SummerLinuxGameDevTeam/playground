@@ -82,3 +82,9 @@ void SDLPlugin::gameEnd()
     SDL_DestroyWindow(_mainwindow);
     SDL_Quit();
 }
+
+
+SDL_Window* SDLPlugin::window()
+{
+    return _mainwindow;
+}

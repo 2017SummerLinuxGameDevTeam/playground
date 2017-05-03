@@ -1,3 +1,6 @@
+#ifndef SDL_PLUGIN_HPP
+#define SDL_PLUGIN_HPP
+
 #include <string>
 #include <SDL2/SDL.h>
 #include "hummingbird/hum.hpp"
@@ -16,8 +19,11 @@ public:
     void postUpdate() override;
     void gameEnd() override;
 
+    SDL_Window* window();
+
 private:
     SDL_Window* _mainwindow; /* Our window handle */
     SDL_GLContext _maincontext; /* Our opengl context handle */
     WindowConfig_t _window_cfg;
 };
+#endif /* ifndef SDL_PLUGIN_HPP */
