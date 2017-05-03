@@ -3,19 +3,19 @@ CC     := g++
 CFLAGS := -std=c++11 -Wall -O3
 ODIR   := obj
 LIBS   := -lSDL2
+INCLUDE_DIRS = $(shell find ./ -name 'include') glm
+INC    = $(addprefix -I,$(INCLUDE_DIRS))
 SDIR   := src
-INC    := -Ihummingbird/include/ -Iinclude/
+SOURCES = $(shell find ./$(SDIR) -name '*.cpp')
+OBJS = $(SOURCES:./%.cpp=%.o)
 
 LIBHUM := hummingbird/lib/libhum.a
-
-SOURCES = $(shell find ./$(SDIR) -name '*.cpp')
-OBJS = $(patsubst $(SDIR)/%,$(ODIR)/%,$(SOURCES:./%.cpp=%.o))
 
 all: $(OBJS) $(LIBHUM)
 	$(CC) $^ $(LIBS) -o $(OUT) $(CFLAGS)
 
 
-$(ODIR)/%.o: $(SDIR)/%.cpp
+%.o: %.cpp
 	$(CC) $(INC) $< -c -o $@ $(CFLAGS)
 
 $(LIBHUM):
@@ -27,4 +27,4 @@ run: all
 .PHONY: clean
 
 clean:
-	rm -rf $(ODIR)/*.o $(OUT)
+	rm -rf $(OBJS) $(OUT)
